@@ -1,0 +1,28 @@
+{% extends 'navbar.html' %}\
+{% block content %}
+{% load static %}
+<link href="{% static 'css/resetpswd.css' %}" rel="stylesheet">
+<table align="center" border="2" class="table">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone No</th>
+        <th>City</th>
+        <th>Course</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in data %}
+        <tr>
+            <td>{{ i.Stud_Name }}</td>
+            <td>{{ i.Stud_Age }}</td>
+            <td>{{ i.Stud_Phone_No }}</td>
+            <td>{{ i.Stud_City }}</td>
+            <td>{{ i.Stud_Course }}</td>
+            <td><a href="{% url 'update' i.id %}">Update</a></td>
+            <td><a href="{% url 'del' i.id %}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
+<h2 align="center">{{ Data }}</h2>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<h1 align="center" style="color:blue;background-color:yellow" >Add Student Data</h1>
+{% load static %}
+<link href="{% static 'css/resetpswd.css' %}" rel="stylesheet">
+<form action="readdata" method="post">
+    {% csrf_token %}
+<table align="center" border="2" cellpadding="2">
+    <tr>
+        <th>Name</th>
+        <td><input type="text" name="sname" placeholder="Enter Student Name"></td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td><input type="number" name="sage" placeholder="Enter Student Age"></td>
+    </tr>
+    <tr>
+        <th>Phone No</th>
+        <td><input type="number" name="sphnno" placeholder="Enter Student Phone No"></td>
+    </tr>
+     <tr>
+        <th>City</th>
+        <td><select name="ddlcity">
+            <option>--Select City--</option>
+            {% for i in City_Data %}
+                <option>{{ i.City_Name }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <th>Course</th>
+        <td><select name="ddlcourse">
+            <option>--Select Course--</option>
+            {% for i in Course_Data %}
+                <option>{{ i.Course_Name }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><input type="submit" name="btnsub" value="Submit"></td>
+    </tr>
+</table>
+    <h2 align="center"> {{ data }} </h2>
+</form>
+{% endblock %}

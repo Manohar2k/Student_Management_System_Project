@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% load static %}
+<body>
+<link href="{% static 'css/resetpswd.css' %}" rel="stylesheet">
+<h1 align="center"> Reset Password</h1>
+<form method="post">
+    {% csrf_token %}
+    <h2 align="center">{{ data }}</h2>
+    <table align="center" border="2">
+   <tr>
+        <th>User Name</th>
+        <td><input type="text" name="username"></td>
+    </tr>
+    <tr>
+        <th>New Password</th>
+        <td><input type="password" name="userpswd">
+    <tr>
+        <td colspan="2" align="center"><input type="submit" name="btnsub" value="Submit"></td>
+    </tr>
+</table>
+</form>
+<br>
+<img src="static/images/forgot-password.jpeg" align="center">
+</body>
+</html>
